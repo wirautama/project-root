@@ -42,7 +42,7 @@
                         <!-- <img src="<?= base_url(); ?>/img/<?= user()->user_image; ?>" class="user-image" alt="User Image" width="70px"> -->
                         <ul class="dropdown-menu" role="menu">
                             <li><a href="<?= base_url('Profile') ?>"><i class="fa fa-user"></i> Profile</a></li>
-                            <li><a href="<?= base_url('ChangePassword'); ?>"><i class="fa fa-lock"></i> Change Password</a></li>
+                            <li><a href="<?= base_url('ChangePassword'); ?>/<?= user_id(); ?>"><i class="fa fa-lock"></i> Change Password</a></li>
                             <li><a href="" data-toggle="modal" data-target="#logout-modal"><i class="glyphicon glyphicon-log-out"></i> Logout</a></li>
                         </ul>
                     </li>

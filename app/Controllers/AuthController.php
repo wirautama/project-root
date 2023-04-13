@@ -6,11 +6,13 @@ use CodeIgniter\Controller;
 use CodeIgniter\Session\Session;
 use Myth\Auth\Config\Auth as AuthConfig;
 use Myth\Auth\Entities\User;
-use Myth\Auth\Models\UserModel;
+use App\Models\UserModel;
+use App\Controllers\BaseController;
 
 class AuthController extends Controller
 {
     protected $auth;
+    protected $helpers = ['form'];
 
     /**
      * @var AuthConfig
@@ -145,13 +147,16 @@ class AuthController extends Controller
 
         $users = model(UserModel::class);
 
+        
         // Validate basics first since some password rules rely on these fields
         $rules = config('Validation')->registrationRules ?? [
             'username' => 'required|alpha_numeric_space|min_length[3]|max_length[30]|is_unique[users.username]',
             'fullname' => 'required',
             'email'    => 'required|valid_email|is_unique[users.email]',
-            // 'user-image' => 'image|file|max:1024'
+            'user_image' => 'max_size[users.user_image,2048]|is_image[users.user_image]|mime_in[users.user_image,image/jpg,image/jpeg,image/png]'
         ];
+        
+        
 
         if (!$this->validate($rules)) {
             return redirect()->back()->withInput()->with('errors', $this->validator->getErrors());
@@ -388,7 +393,7 @@ class AuthController extends Controller
         $login = urldecode($this->request->getGet('login'));
         $type  = filter_var($login, FILTER_VALIDATE_EMAIL) ? 'email' : 'username';
 
-        $users = model(UserModel::class);
+        $users = model(User Model::class);
 
         $user = $users->where($type, $login)
             ->where('active', 0)

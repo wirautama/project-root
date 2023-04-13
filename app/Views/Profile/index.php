@@ -19,14 +19,32 @@
                 <div class="col-md-5">
                     <section class="content">
                         <!-- /.login-logo -->
-
+                        <?php if (session()->getFlashdata('success')) : ?>
+                            <div class="alert alert-success alert-dismissible">
+                                <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                                <h4><i class="icon fa fa-check"></i> Success</h4>
+                                <?= session()->getFlashdata('success'); ?>
+                            </div>
+                        <?php endif; ?>
+                        <?php if (session()->getFlashdata('warning')) : ?>
+                            <div class="alert alert-warning alert-dismissible">
+                                <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                                <h4><i class="icon fa fa-warning"></i> Warning</h4>
+                                <?= session()->getFlashdata('warning'); ?>
+                            </div>
+                        <?php endif; ?>
+                        <?php if (session()->getFlashdata('error')) : ?>
+                            <div class="alert alert-danger alert-dismissible">
+                                <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                                <h4><i class="icon fa fa-ban"></i> Error</h4>
+                                <?= session()->getFlashdata('error'); ?>
+                            </div>
+                        <?php endif; ?>
                         <!-- Profile Image -->
                         <div class="box box-primary">
                             <div class="box-body box-profile">
 
-                                <!-- <h3 class="profile-username text-center"></h3>
 
-                                <p class="text-muted text-center"></p> -->
 
                                 <ul class="list-group list-group-unbordered">
                                     <li class="list-group-item">

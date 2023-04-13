@@ -5,6 +5,7 @@ namespace App\Controllers;
 use App\Controllers\BaseController;
 use App\Entities\User;
 use App\Models\UserModel;
+use Myth\Auth\Password;
 
 class Profile extends BaseController
 {
@@ -30,7 +31,7 @@ class Profile extends BaseController
     public function edit($id)
     {
         $data = [
-            'title' => 'Edit Data Komik | Bertus',
+            'title' => 'Project Root | Edit Profile',
             'validation' => \config\Services::validation(),
             'user' => $this->userModel->find($id)
         ];
@@ -90,6 +91,7 @@ class Profile extends BaseController
                 ]
             ]
         ])) {
+            session()->setFlashdata('error', 'Periksa Form Inputan Kembali');
             return redirect()->to('/Profile/edit/' . $id)->withInput();
         }
         // ambil Gambar
@@ -113,9 +115,11 @@ class Profile extends BaseController
             'fullname' => $this->request->getPost('fullname'),
             'user_image' => $namaPicture
         ]);
-
+        session()->setFlashdata('success', 'Berhasil Mengubah Profil');
         return redirect()->to('/Profile');
     }
+
+
 
     public function delete($id)
     {
@@ -128,21 +132,7 @@ class Profile extends BaseController
         }
 
         $this->userModel->delete($id);
-        session()->setFlashdata('pesan', 'Data Berhasil Dihapus');
+        session()->setFlashdata('success', 'Data Berhasil Dihapus');
         return redirect()->to('/Profile');
     }
 }
-
-
-
-// // ambil Gambar
-// $filePicture = $this->request->getFile('user_image');
-// // apakah tidak ada gambar yang diupload
-// if ($filePicture->getError() == 4) {
-//     $namaPicture = 'default.jpg';
-// } else {
-//     // generate nama profile random
-//     $namaPicture = $filePicture->getRandomName();
-//     // pindahkan file ke folder img
-//     $filePicture->move('img', $namaPicture);
-// }

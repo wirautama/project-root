@@ -122,7 +122,7 @@ class Auth extends \Myth\Auth\Config\Auth
      *
      * @var string[]
      */
-    public $personalFields = ['fullname'];
+    public $personalFields = ['fullname', 'user_image'];
 
     /**
      * --------------------------------------------------------------------
@@ -224,7 +224,7 @@ class Auth extends \Myth\Auth\Config\Auth
      *
      * @var int
      */
-    public $rememberLength = 30 * DAY;
+    public $rememberLength = 7 * DAY;
 
     /**
      * --------------------------------------------------------------------

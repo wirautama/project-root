@@ -19,7 +19,27 @@
                 <div class="col-md-6">
                     <section class="content">
                         <!-- /.login-logo -->
-
+                        <?php if (session()->getFlashdata('success')) : ?>
+                            <div class="alert alert-success alert-dismissible">
+                                <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                                <h4><i class="icon fa fa-check"></i> Success</h4>
+                                <?= session()->getFlashdata('success'); ?>
+                            </div>
+                        <?php endif; ?>
+                        <?php if (session()->getFlashdata('warning')) : ?>
+                            <div class="alert alert-warning alert-dismissible">
+                                <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                                <h4><i class="icon fa fa-warning"></i> Warning</h4>
+                                <?= session()->getFlashdata('warning'); ?>
+                            </div>
+                        <?php endif; ?>
+                        <?php if (session()->getFlashdata('error')) : ?>
+                            <div class="alert alert-danger alert-dismissible">
+                                <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                                <h4><i class="icon fa fa-ban"></i> Error</h4>
+                                <?= session()->getFlashdata('error'); ?>
+                            </div>
+                        <?php endif; ?>
                         <form action="/Profile/update/<?= user_id(); ?>" method="post" enctype="multipart/form-data">
                             <?= csrf_field() ?>
                             <input type="hidden" name="id" value="<?= user_id(); ?>">

@@ -9,7 +9,8 @@
 
         <p class="login-box-msg"><?= lang('Auth.register') ?></p>
         <?= view('App\Views\Auth\_message_block') ?>
-        <form action="<?= url_to('register') ?>" method="post">
+        <form action="<?= url_to('register') ?>" method="post" enctype="multipart/form-data">
+            <!-- <input type="hidden" name="user_image" value="default.svg"> -->
             <?= csrf_field() ?>
 
             <div class="form-group has-feedback">
@@ -39,6 +40,15 @@
                 <input type="password" class="form-control <?php if (session('errors.pass_confirm')) : ?>is-invalid<?php endif ?>" name="pass_confirm" placeholder="<?= lang('Auth.repeatPassword') ?>" autocomplete="off">
                 <span class="glyphicon glyphicon-lock form-control-feedback"></span>
             </div>
+            <div class="form-group has-feedback">
+                <label for="user_image" class="custom_file_picture">Profile Picture</label>
+                <br>
+                <div class="col-sm-4">
+                    <img src="" class="img-thumbnail img-preview" width="100px">
+                </div>
+                <input type="file" id="user_image" class="form-control <?php if (session('errors.user_image')) : ?>is-invalid<?php endif ?>" placeholder="" name="user_image" value="<?= old('user_image') ?>" onchange="previewImage()">
+
+            </div>
 
             <div class="row">
                 <div class="col-xs-8">
@@ -60,4 +70,21 @@
     </div>
     <!-- /.form-box -->
 </div>
+
+<script>
+    function previewImage() {
+        const picture = document.querySelector('#user_image');
+        const pictureLabel = document.querySelector('.custom_file_picture');
+        const imgPreview = document.querySelector('.img-preview');
+
+        pictureLabel.textContent = picture.files[0].name;
+
+        const filePicture = new FileReader();
+        filePicture.readAsDataURL(picture.files[0]);
+
+        filePicture.onload = function(e) {
+            imgPreview.src = e.target.result;
+        }
+    }
+</script>
 <?= $this->endSection(); ?>
