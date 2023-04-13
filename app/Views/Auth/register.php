@@ -40,23 +40,19 @@
                 <input type="password" class="form-control <?php if (session('errors.pass_confirm')) : ?>is-invalid<?php endif ?>" name="pass_confirm" placeholder="<?= lang('Auth.repeatPassword') ?>" autocomplete="off">
                 <span class="glyphicon glyphicon-lock form-control-feedback"></span>
             </div>
-            <div class="form-group has-feedback">
-                <label for="user_image" class="custom_file_picture">Profile Picture</label>
-                <br>
-                <div class="col-sm-4">
-                    <img src="" class="img-thumbnail img-preview" width="100px">
-                </div>
-                <input type="file" id="user_image" class="form-control <?php if (session('errors.user_image')) : ?>is-invalid<?php endif ?>" placeholder="" name="user_image" value="<?= old('user_image') ?>" onchange="previewImage()">
 
-            </div>
+
 
             <div class="row">
                 <div class="col-xs-8">
                     <div class="checkbox icheck">
                         <label>
-                            <input type="checkbox"> I agree to the <a href="#">terms</a>
+                            <input type="checkbox"> I agree to the <a href="#">terms</a><br>
+                            <small id="emailHelp" class="form-text text-muted">Lakukan aktivasi terlebih dahulu untuk bisa mengupload foto Profile</small>
                         </label>
+
                     </div>
+
                 </div>
                 <!-- /.col -->
                 <div class="col-xs-4">

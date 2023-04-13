@@ -26,7 +26,7 @@ class UserModel extends Model
         'username'      => 'required|alpha_numeric_punct|min_length[3]|max_length[30]|is_unique[users.username,id,{id}]',
         'fullname'      => 'required',
         'password_hash' => 'required',
-        'user_image'    => 'required'
+
 
     ];
     protected $validationMessages = [];

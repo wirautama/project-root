@@ -153,7 +153,7 @@ class AuthController extends Controller
             'username' => 'required|alpha_numeric_space|min_length[3]|max_length[30]|is_unique[users.username]',
             'fullname' => 'required',
             'email'    => 'required|valid_email|is_unique[users.email]',
-            'user_image' => 'max_size[users.user_image,2048]|is_image[users.user_image]|mime_in[users.user_image,image/jpg,image/jpeg,image/png]'
+            
         ];
         
         
