@@ -35,6 +35,8 @@ $routes->get('/Profile/edit/(:segment)', 'Profile::edit/$1');
 $routes->post('/Profile/update/(:num)', 'Profile::update/$1');
 $routes->get('/ChangePassword/(:segment)', 'ChangePassword::ubahPassword/$1');
 $routes->post('/ChangePassword/(:num)', 'ChangePassword::updatePassword/$1');
+$routes->get('/User', 'User::index');
+
 
 /*
  * --------------------------------------------------------------------

@@ -20,7 +20,11 @@
                     <i class="fa fa-dashboard"></i> <span>Dashboard</span>
                 </a>
             </li>
-
+            <li class="active">
+                <a href="<?= base_url('/User'); ?>">
+                    <i class="fa fa-users"></i> <span>Daftar User</span>
+                </a>
+            </li>
 
         </ul>
     </section>
