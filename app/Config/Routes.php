@@ -29,14 +29,17 @@ $routes->set404Override();
 
 // We get a performance increase by specifying the default
 // route since we don't have to scan directories.
-$routes->get('/', 'Home::index');
-$routes->get('/Profile', 'Profile::index');
-$routes->get('/Profile/edit/(:segment)', 'Profile::edit/$1');
-$routes->post('/Profile/update/(:num)', 'Profile::update/$1');
-$routes->get('/ChangePassword/(:segment)', 'ChangePassword::ubahPassword/$1');
-$routes->post('/ChangePassword/(:num)', 'ChangePassword::updatePassword/$1');
-$routes->get('/User', 'User::index');
 
+
+$routes->group('', ['filter' => 'login'], function ($routes) {
+    $routes->get('/', 'Home::index');
+    $routes->get('/Profile', 'Profile::index');
+    $routes->get('/Profile/edit/(:segment)', 'Profile::edit/$1');
+    $routes->post('/Profile/update/(:num)', 'Profile::update/$1');
+    $routes->get('/ChangePassword/(:segment)', 'ChangePassword::ubahPassword/$1');
+    $routes->post('/ChangePassword/(:num)', 'ChangePassword::updatePassword/$1');
+    $routes->get('/User', 'User::index');
+});
 
 /*
  * --------------------------------------------------------------------
