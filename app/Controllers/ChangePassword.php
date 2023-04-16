@@ -37,7 +37,6 @@ class ChangePassword extends BaseController
             $rule_password_lama = 'required';
         }
 
-
         if (!$this->validate([
             'password_lama' => $rule_password_lama,
             'password_baru' => 'required|strong_password',
