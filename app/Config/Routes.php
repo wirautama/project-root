@@ -32,15 +32,24 @@ $routes->set404Override();
 
 
 $routes->group('', ['filter' => 'login'], function ($routes) {
+
     $routes->get('/', 'Home::index');
+
     $routes->get('/Profile', 'Profile::index');
     $routes->get('/Profile/edit/(:segment)', 'Profile::edit/$1');
     $routes->post('/Profile/update/(:num)', 'Profile::update/$1');
+
     $routes->get('/ChangePassword/(:segment)', 'ChangePassword::ubahPassword/$1');
     $routes->post('/ChangePassword/(:num)', 'ChangePassword::updatePassword/$1');
+
     $routes->get('/User', 'User::index');
     $routes->get('/User/edit/(:segment)', 'User::edit/$1');
     $routes->post('/User/update/(:num)', 'User::update/$1');
+
+    $routes->get('/Group', 'Group::index');
+    $routes->get('/Group/new', 'Group::new');
+    $routes->get('/Group/edit/(:segment)', 'Group::edit/$1');
+    $routes->post('/Group/update/(:num)', 'Group::update/$1');
 });
 
 /*

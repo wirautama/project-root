@@ -20,11 +20,26 @@
                     <i class="fa fa-dashboard"></i> <span>Dashboard</span>
                 </a>
             </li>
-            <li class="<?= uri_string() == 'User' ? 'active' : '' ?>">
-                <a href="<?= base_url('/User'); ?>">
-                    <i class="fa fa-users"></i> <span>Daftar User</span>
+            <li class="treeview 
+            
+            
+            <?= uri_string() == 'Group' ? 'active' : '' ?> 
+            <?= uri_string() == 'Group/new' ? 'active' : '' ?> 
+            <?= uri_string() == 'User' ? 'active' : '' ?>">
+
+                <a href="#">
+                    <i class="fa fa-pie-chart"></i>
+                    <span>Users</span>
+                    <span class="pull-right-container">
+                        <i class="fa fa-angle-left pull-right"></i>
+                    </span>
                 </a>
+                <ul class="treeview-menu">
+                    <li class="<?= uri_string() == 'Group' ? 'active' : '' ?>"><a href="<?= base_url('/Group'); ?>"><i class="fa fa-circle-o"></i> Permission</a></li>
+                    <li class="<?= uri_string() == 'User' ? 'active' : '' ?>"><a href="<?= base_url('/User'); ?>"><i class="fa fa-circle-o"></i> List Users</a></li>
+                </ul>
             </li>
+            <!-- -->
 
         </ul>
     </section>
