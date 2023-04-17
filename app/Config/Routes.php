@@ -39,6 +39,8 @@ $routes->group('', ['filter' => 'login'], function ($routes) {
     $routes->get('/ChangePassword/(:segment)', 'ChangePassword::ubahPassword/$1');
     $routes->post('/ChangePassword/(:num)', 'ChangePassword::updatePassword/$1');
     $routes->get('/User', 'User::index');
+    $routes->get('/User/edit/(:segment)', 'User::edit/$1');
+    $routes->post('/User/update/(:num)', 'User::update/$1');
 });
 
 /*
