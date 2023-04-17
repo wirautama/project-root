@@ -48,8 +48,9 @@ $routes->group('', ['filter' => 'login'], function ($routes) {
 
     $routes->get('/Group', 'Group::index');
     $routes->get('/Group/new', 'Group::new');
+    $routes->post('/Group/create', 'Group::create');
     $routes->get('/Group/edit/(:segment)', 'Group::edit/$1');
-    $routes->post('/Group/update/(:num)', 'Group::update/$1');
+    $routes->put('/Group/update/(:num)', 'Group::update/$1');
 });
 
 /*

@@ -21,7 +21,7 @@
                             <h3 class="card-title">Edit Group</h3>
                         </div>
                         <div class="card-body">
-                            <form action="<?= base_url('group/' . $group->id); ?>" method="post">
+                            <form action="/Group/update/<?= $group->id; ?>" method="post">
                                 <?= csrf_field(); ?>
                                 <input type="hidden" name="_method" value="put">
                                 <div class="form-group">
@@ -55,5 +55,13 @@
         </div>
     </section>
 </div>
+<script>
+    function toggle(source) {
+        checkboxes = document.getElementsByName('permission[]');
+        for (var i = 0, n = checkboxes.length; i < n; i++) {
+            checkboxes[i].checked = source.checked;
+        }
+    }
+</script>
 
 <?= $this->endSection(); ?>

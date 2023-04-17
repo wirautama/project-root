@@ -20,7 +20,7 @@
                             <h3 class="card-title">Create New Group</h3>
                         </div>
                         <div class="card-body">
-                            <form action="<?= base_url('group'); ?>" method="POST">
+                            <form action="/Group/create" method="POST">
                                 <?= csrf_field(); ?>
                                 <div class="form-group">
                                     <label for="name">Name</label>
@@ -53,4 +53,12 @@
         </div>
     </section>
 </div>
+<script>
+    function toggle(source) {
+        checkboxes = document.getElementsByName('permission[]');
+        for (var i = 0, n = checkboxes.length; i < n; i++) {
+            checkboxes[i].checked = source.checked;
+        }
+    }
+</script>
 <?= $this->endSection(); ?>

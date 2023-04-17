@@ -89,6 +89,7 @@ class Group extends BaseController
             }
         }
         $this->db->transComplete();
+        session()->setFlashdata('pesan', 'Data Berhasil diupdate');
         return redirect()->to(site_url('Group'));
     }
     public function delete($id)
