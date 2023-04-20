@@ -25,6 +25,7 @@
             
             <?= uri_string() == 'Group' ? 'active' : '' ?> 
             <?= uri_string() == 'Group/new' ? 'active' : '' ?> 
+            
             <?= uri_string() == 'User' ? 'active' : '' ?>">
 
                 <a href="#">
@@ -35,11 +36,16 @@
                     </span>
                 </a>
                 <ul class="treeview-menu">
-                    <li class="<?= uri_string() == 'Group' ? 'active' : '' ?>"><a href="<?= base_url('/Group'); ?>"><i class="fa fa-circle-o"></i> Permission</a></li>
+                    <li class="<?= uri_string() == 'Group' ? 'active' : '' ?>"><a href="<?= base_url('/Group'); ?>"><i class="fa fa-circle-o"></i>List Permission</a></li>
                     <li class="<?= uri_string() == 'User' ? 'active' : '' ?>"><a href="<?= base_url('/User'); ?>"><i class="fa fa-circle-o"></i> List Users</a></li>
                 </ul>
             </li>
             <!-- -->
+            <li class="<?= uri_string() == 'Komik' ? 'active' : '' ?>">
+                <a href="<?= base_url('/Komik'); ?>">
+                    <i class="fa fa-dashboard"></i> <span>Komik</span>
+                </a>
+            </li>
 
         </ul>
     </section>
