@@ -20,7 +20,19 @@ class Komik extends BaseController
             'komik' => $this->komikModel->getKomik()
         ];
 
-
         return view('Komik/index', $data);
+    }
+    public function detail($slug)
+    {
+        $data = [
+            'title' => 'Detail Komik | Bertus',
+            'komik' => $this->komikModel->getKomik($slug)
+        ];
+
+        // Jika Komik tidak ditemukan
+        if (empty($data['komik'])) {
+            throw new \CodeIgniter\Exceptions\PageNotFoundException('Judul Komik ' . $slug . ' tidak ditemukan.');
+        }
+        return view('Komik/detail', $data);
     }
 }

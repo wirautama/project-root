@@ -40,10 +40,10 @@
                                         <th scope="row"><?= $i++; ?></th>
                                         <td><img src="/img/<?= $k['sampul']; ?>" alt="" class="sampul" width="70px"></td>
                                         <td><?= $k['judul']; ?></td>
-                                        <td><?= $k['rilis']; ?></td>
+                                        <td><?= date('d F Y', strtotime($k['rilis'])); ?></td>
                                         <td><?= number_to_currency($k['harga'], 'IDR', 'id_ID'); ?></td>
                                         <td>
-                                            <a href="/komik/<?= $k['slug']; ?>" class="btn btn-success">Detail</a>
+                                            <a href="/komik/detail/<?= $k['slug']; ?>" class="btn btn-success">Detail</a>
                                         </td>
                                     </tr>
                                 <?php endforeach; ?>
