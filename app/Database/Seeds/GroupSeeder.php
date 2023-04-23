@@ -21,6 +21,11 @@ class GroupSeeder extends Seeder
             'description' => 'Restrict From All Menu'
         ]);
 
+        $groups->insert([
+            'name' => 'User',
+            'description' => 'Manage Product'
+        ]);
+
         $permissions = new PermissionModel();
         $admin = $permissions->findAll();
         foreach ($admin as $permission) {
@@ -29,6 +34,10 @@ class GroupSeeder extends Seeder
         $karyawan = $permissions->where('name', 'data-komik')->findAll();
         foreach ($karyawan as $permission) {
             $groups->addPermissionToGroup($permission->id, 2);
+        }
+        $user = $permissions->where('name', 'data-customer')->findAll();
+        foreach ($user as $permission) {
+            $groups->addPermissionToGroup($permission->id, 3);
         }
     }
 }

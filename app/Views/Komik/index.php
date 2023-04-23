@@ -28,6 +28,7 @@
                                     <th scope="col">#</th>
                                     <th scope="col">Sampul</th>
                                     <th scope="col">Judul</th>
+                                    <th scope="col">Tanggal Rilis</th>
                                     <th scope="col">Harga</th>
                                     <th scope="col">Aksi</th>
                                 </tr>
@@ -39,6 +40,7 @@
                                         <th scope="row"><?= $i++; ?></th>
                                         <td><img src="/img/<?= $k['sampul']; ?>" alt="" class="sampul" width="70px"></td>
                                         <td><?= $k['judul']; ?></td>
+                                        <td><?= $k['rilis']; ?></td>
                                         <td><?= number_to_currency($k['harga'], 'IDR', 'id_ID'); ?></td>
                                         <td>
                                             <a href="/komik/<?= $k['slug']; ?>" class="btn btn-success">Detail</a>

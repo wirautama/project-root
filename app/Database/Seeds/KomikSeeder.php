@@ -4,18 +4,21 @@ namespace App\Database\Seeds;
 
 use App\Models\KomikModel;
 use CodeIgniter\Database\Seeder;
+use Datetime;
 
 class KomikSeeder extends Seeder
 {
     public function run()
     {
+
         $komik = new KomikModel();
         $komik->insert([
             'judul' => 'Jujutsu Kaisen',
             'slug' => 'jujutsu-kaisen',
-            'penulis' => 'Albert Einstein',
+            'penulis' => 'Gege Akutami',
             'penerbit' => 'Shueisha',
-            'sampul' => 'default.png',
+            'rilis' => '2018-07-04',
+            'sampul' => 'jujutsu kaisen.jpg',
             'harga' => 30000,
             'created_at' => date('Y-m-d H:i:s')
         ]);
@@ -24,7 +27,8 @@ class KomikSeeder extends Seeder
             'slug' => 'attack-on-titan',
             'penulis' => 'Hajime Isayama',
             'penerbit' => 'Kodansha',
-            'sampul' => 'default.png',
+            'rilis' => '2009-09-09',
+            'sampul' => 'aot.jpg',
             'harga' => 130000,
             'created_at' => date('Y-m-d H:i:s')
         ]);
@@ -32,10 +36,11 @@ class KomikSeeder extends Seeder
             'judul' => 'One Piece',
             'slug' => 'one-piece',
             'penulis' => 'Eiichiro Oda',
-            'penerbit' => 'Shueisha',
-            'sampul' => 'default.png',
+            'penerbit' => 'Weekly Shounen Jump',
+            'rilis' => '1997-10-04',
+            'sampul' => 'onepiece.jpg',
             'harga' => 190000,
-            'created_at' => date('Y-m-d H:i:s')
+            'created_at' => date('2000-01-13')
         ]);
     }
 }

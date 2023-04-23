@@ -55,6 +55,8 @@ $routes->group('', ['filter' => 'login'], function ($routes) {
     $routes->get('/Komik', 'Komik::index');
     $routes->get('/Komik/edit/(:segment)', 'Komik::edit$1');
     $routes->put('/Komik/update/(:num)', 'Komik::update/$1');
+
+    $routes->get('/Permissions', 'Permission::index');
 });
 
 /*

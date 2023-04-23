@@ -3,12 +3,14 @@
 namespace App\Models;
 
 use CodeIgniter\Model;
+use DateTime;
 
 class KomikModel extends Model
 {
     protected $table = 'komik';
     protected $useTimestamps = true;
-    protected $allowedFields = ['judul', 'slug', 'penulis', 'penerbit', 'sampul', 'harga'];
+    protected $allowedFields = ['judul', 'slug', 'penulis', 'penerbit', 'rilis', 'sampul', 'harga'];
+    protected $dateFormat           = 'datetime';
 
     public function getKomik($slug = false)
     {

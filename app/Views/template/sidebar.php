@@ -26,7 +26,8 @@
             <?= uri_string() == 'Group' ? 'active' : '' ?> 
             <?= uri_string() == 'Group/new' ? 'active' : '' ?> 
             
-            <?= uri_string() == 'User' ? 'active' : '' ?>">
+            <?= uri_string() == 'User' ? 'active' : '' ?>
+                <?= uri_string() == 'Permissions' ? 'active' : '' ?>">
 
                 <a href="#">
                     <i class="fa fa-pie-chart"></i>
@@ -38,6 +39,7 @@
                 <ul class="treeview-menu">
                     <li class="<?= uri_string() == 'Group' ? 'active' : '' ?>"><a href="<?= base_url('/Group'); ?>"><i class="fa fa-circle-o"></i>List Permission</a></li>
                     <li class="<?= uri_string() == 'User' ? 'active' : '' ?>"><a href="<?= base_url('/User'); ?>"><i class="fa fa-circle-o"></i> List Users</a></li>
+                    <li class="<?= uri_string() == 'Permissions' ? 'active' : '' ?>"><a href="<?= base_url('/Permissions'); ?>"><i class="fa fa-circle-o"></i> List Group</a></li>
                 </ul>
             </li>
             <!-- -->

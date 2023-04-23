@@ -15,6 +15,7 @@ class Komik extends Migration
             'slug'             => ['type' => 'varchar', 'constraint' => 255],
             'penulis'          => ['type' => 'varchar', 'constraint' => 255],
             'penerbit'         => ['type' => 'varchar', 'constraint' => 255],
+            'rilis'            => ['type' => 'date'],
             'sampul'           => ['type' => 'varchar', 'constraint' => 255],
             'harga'            => ['type' => 'decimal', 'constraint' => 8],
             'created_at'       => ['type' => 'datetime', 'null' => true],
