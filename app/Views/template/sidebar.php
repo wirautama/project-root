@@ -43,7 +43,11 @@
                 </ul>
             </li>
             <!-- -->
-            <li class="<?= uri_string() == 'Komik' ? 'active' : '' ?>">
+            <li class="
+            <?= uri_string() == 'Komik' ? 'active' : '' ?>
+            <?= uri_string() == 'Komik/create' ? 'active' : '' ?>
+            
+            ">
                 <a href="<?= base_url('/Komik'); ?>">
                     <i class="fa fa-dashboard"></i> <span>Komik</span>
                 </a>

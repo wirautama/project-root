@@ -43,13 +43,13 @@
                                         <td><?= date('d F Y', strtotime($k['rilis'])); ?></td>
                                         <td><?= number_to_currency($k['harga'], 'IDR', 'id_ID'); ?></td>
                                         <td>
-                                            <a href="/komik/detail/<?= $k['slug']; ?>" class="btn btn-success">Detail</a>
+                                            <a href="/Komik/detail/<?= $k['slug']; ?>" class="btn btn-success">Detail</a>
                                         </td>
                                     </tr>
                                 <?php endforeach; ?>
                             </tbody>
                         </table>
-
+                        <a href="/Komik/create" class="btn btn-primary mb-3">Tambah Data Komik</a>
                 </div>
 
             </div>

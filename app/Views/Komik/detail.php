@@ -66,7 +66,9 @@
                             </table>
                             <br>
 
-                            <a href="/komik/edit/<?= $komik['slug']; ?>" class="btn btn-warning">Edit</a>
+                            <a href="/Komik/edit/<?= $komik['slug']; ?>" class="btn btn-warning">Edit</a>
+
+                            <button type="submit" class="btn btn-danger" data-toggle="modal" data-target="#delete-modal">Hapus</button>
 
                             <br>
                             <br>
@@ -80,5 +82,32 @@
         </div>
     </section>
 </div>
+
+<div class="modal modal-danger fade" id="delete-modal">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title">Hapus Komik <?= $komik['judul']; ?></h4>
+            </div>
+            <div class="modal-body">
+                <p>Anda yakin ingin menghapus <?= $komik['judul']; ?> ??</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-outline pull-left" data-dismiss="modal">Mungkin nanti saja</button>
+                <form action="/Komik/delete/<?= $komik['id']; ?>" method="POST">
+                    <?= csrf_field(); ?>
+                    <input type="hidden" name="_method" value="DELETE">
+                    <button type="submit" class="btn btn-outline">Iya</button>
+                </form>
+            </div>
+        </div>
+        <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+</div>
+<!-- /.modal -->
+
 
 <?= $this->endSection(); ?>
