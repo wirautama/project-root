@@ -54,6 +54,7 @@ $routes->group('', ['filter' => 'login'], function ($routes) {
 
     $routes->get('/Komik', 'Komik::index');
     $routes->get('/Komik/create', 'Komik::create');
+    $routes->post('/Komik/save', 'Komik::save');
     $routes->get('/Komik/detail/(:any)', 'Komik::detail/$1');
     $routes->get('/Komik/edit/(:segment)', 'Komik::edit/$1');
     $routes->put('/Komik/update/(:num)', 'Komik::update/$1');
