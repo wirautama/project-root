@@ -63,7 +63,7 @@
                                         <td><?= $user->username; ?></td>
                                         <td><?= $user->fullname; ?></td>
                                         <td><?= $user->user_image; ?></td>
-                                        <td><?= $user->active == 1 ? '<a class="badge badge-success">active</a>' : 'Nonactive' ?></td>
+                                        <td><?= $user->active == 1 ? '<a class="badge badge-success">active</a>' : 'nonactive' ?></td>
                                         <td><a href="/User/edit/<?= $user->id; ?>" class="btn btn-warning">Edit</a></td>
 
                                     </tr>

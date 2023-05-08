@@ -111,7 +111,7 @@ class Komik extends BaseController
             'sampul' => $namaSampul,
             'harga' => $this->request->getVar('harga')
         ]);
-        session()->setFlashdata('pesan', 'Data Berhasil ditambahkan');
+        session()->setFlashdata('success', 'Data Berhasil ditambahkan');
         return redirect()->to('/Komik');
     }
 
@@ -139,7 +139,7 @@ class Komik extends BaseController
         }
 
         $this->komikModel->delete($id);
-        session()->setFlashdata('pesan', 'Data Berhasil dihapus');
+        session()->setFlashdata('success', 'Data Berhasil dihapus');
         return redirect()->to('/Komik');
     }
 }
