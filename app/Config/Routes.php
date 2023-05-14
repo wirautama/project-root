@@ -30,6 +30,13 @@ $routes->set404Override();
 // We get a performance increase by specifying the default
 // route since we don't have to scan directories.
 
+// API KOMIK
+$routes->get('/Api/Komik', 'Apikomik::index');
+$routes->post('/Api/Komik', 'Apikomik::create');
+$routes->get('/Api/Komik/(:any)', 'Apikomik::show/$1');
+$routes->put('/Api/Komik/(:num)', 'Apikomik::update/$1');
+$routes->delete('/Api/Komik/(:num)', 'Apikomik::delete/$1');
+// 
 
 $routes->group('', ['filter' => 'login'], function ($routes) {
 
@@ -60,8 +67,13 @@ $routes->group('', ['filter' => 'login'], function ($routes) {
     $routes->put('/Komik/update/(:num)', 'Komik::update/$1');
     $routes->delete('/Komik/delete/(:num)', 'Komik::delete/$1');
 
+
+
+
     $routes->get('/Permissions', 'Permission::index');
 });
+
+
 
 /*
  * --------------------------------------------------------------------

@@ -15,38 +15,38 @@
 
         <div class="container">
             <div class="row">
-                <div class="col">
-
-                    <?php if (session()->getFlashdata('pesan')) : ?>
-                        <div class="alert alert-success" role="alert">
-                            <?= session()->getFlashdata('pesan'); ?>
-                        </div>
-                    <?php endif; ?>
-                    <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-                        <thead>
-                            <tr>
-                                <th>No.</th>
-                                <th>Nama</th>
-                                <th>Deskripsi</th>
-                                <th>Action</th>
-                            </tr>
-                        </thead>
-                        <?php $no = 1; ?>
-                        <?php foreach ($groups as $group) : ?>
-                            <tbody>
+                <div class="col-md-12">
+                    <section class="content">
+                        <?php if (session()->getFlashdata('pesan')) : ?>
+                            <div class="alert alert-success" role="alert">
+                                <?= session()->getFlashdata('pesan'); ?>
+                            </div>
+                        <?php endif; ?>
+                        <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                            <thead>
                                 <tr>
-                                    <td><?= $no++; ?></td>
-                                    <td><?= $group->name; ?></td>
-                                    <td><?= $group->description; ?></td>
-                                    <td>
-                                        <a href="/Group/edit/<?= $group->id; ?>" class="btn btn-warning">Edit</a>
-                                        <a href="" class="btn btn-danger">Delete</a>
-                                    </td>
+                                    <th>No.</th>
+                                    <th>Nama</th>
+                                    <th>Deskripsi</th>
+                                    <th>Action</th>
                                 </tr>
-                            </tbody>
-                        <?php endforeach ?>
-                    </table>
-                    <a href="/Group/new" class="btn btn-success">Tambah</a>
+                            </thead>
+                            <?php $no = 1; ?>
+                            <?php foreach ($groups as $group) : ?>
+                                <tbody>
+                                    <tr>
+                                        <td><?= $no++; ?></td>
+                                        <td><?= $group->name; ?></td>
+                                        <td><?= $group->description; ?></td>
+                                        <td>
+                                            <a href="/Group/edit/<?= $group->id; ?>" class="btn btn-warning">Edit</a>
+                                            <a href="" class="btn btn-danger">Delete</a>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            <?php endforeach ?>
+                        </table>
+                        <a href="/Group/new" class="btn btn-success">Tambah</a>
                 </div>
             </div>
         </div>

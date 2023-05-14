@@ -5,10 +5,12 @@ namespace App\Controllers;
 use App\Controllers\BaseController;
 use App\Models\KomikModel;
 
+
 class Komik extends BaseController
 {
     protected $komikModel;
     protected $helpers = ['form'];
+    protected $format = 'json';
     public function __construct()
     {
         $this->komikModel = new KomikModel();
@@ -22,6 +24,7 @@ class Komik extends BaseController
 
         return view('Komik/index', $data);
     }
+
     public function create()
     {
         $data = [
@@ -85,6 +88,7 @@ class Komik extends BaseController
 
         ])) {
             // $validation = \config\Services::validation();
+            session()->setFlashdata('warning', 'Periksa Kembali Data Anda');
             return redirect()->to('/Komik/create')->withInput();
         }
         $fileSampul = $this->request->getFile('sampul');

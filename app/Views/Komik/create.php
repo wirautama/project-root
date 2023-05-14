@@ -20,51 +20,52 @@
 
                     <form action="/Komik/save" method="POST" enctype="multipart/form-data">
                         <?= csrf_field(); ?>
-                        <div class="mb-3 ">
-                            <label for="judul" class="form-label">Judul</label>
-                            <input type="text" name="judul" class="form-control <?= (validation_show_error('judul')) ? 'is-invalid' : ''; ?>" id="judul" autofocus value="<?= old('judul'); ?>" placeholder="Judul Komik">
+                        <div class="mb-3 <?= (validation_show_error('judul')) ? 'has-error' : ''; ?>">
+                            <label for="judul" class="form-label"> Judul</label>
+                            <input type="text" name="judul" class="form-control" id="judul" autofocus value="<?= old('judul'); ?>" placeholder="Judul Komik">
                             <div class="invalid-feedback">
                                 <?= validation_show_error('judul'); ?>
                             </div>
                         </div>
-                        <div class="mb-3">
+                        <div class="mb-3 <?= (validation_show_error('penulis')) ? 'has-error' : ''; ?>">
                             <label for="penulis" class="form-label">Penulis</label>
-                            <input type="text" name="penulis" class="form-control <?= (validation_show_error('penulis')) ? 'is-invalid' : ''; ?>" id="penulis" value="<?= old('penulis'); ?>" placeholder="Penulis Komik">
+                            <input type="text" name="penulis" class="form-control" id="penulis" value="<?= old('penulis'); ?>" placeholder="Penulis Komik">
                             <div class="invalid-feedback">
                                 <?= validation_show_error('penulis'); ?>
                             </div>
                         </div>
-                        <div class="mb-3">
+                        <div class="mb-3 <?= (validation_show_error('penerbit')) ? 'has-error' : ''; ?>">
                             <label for="penerbit" class="form-label">Penerbit</label>
-                            <input type="text" name="penerbit" class="form-control <?= (validation_show_error('penerbit')) ? 'is-invalid' : ''; ?>" id="penerbit" value="<?= old('penerbit'); ?>" placeholder="Penerbit Komik">
+                            <input type="text" name="penerbit" class="form-control" id="penerbit" value="<?= old('penerbit'); ?>" placeholder="Penerbit Komik">
                             <div class="invalid-feedback">
                                 <?= validation_show_error('penerbit'); ?>
                             </div>
                         </div>
-                        <div class="mb-3">
+                        <div class="mb-3 <?= (validation_show_error('rilis')) ? 'has-error' : ''; ?>">
                             <label for="rilis" class="form-label">Tanggal Rilis</label>
-                            <input type="date" name="rilis" class="form-control <?= (validation_show_error('rilis')) ? 'is-invalid' : ''; ?>" id="rilis" value="<?= old('rilis'); ?>">
+                            <input type="date" name="rilis" class="form-control" id="rilis" value="<?= old('rilis'); ?>">
                             <div class="invalid-feedback">
                                 <?= validation_show_error('rilis'); ?>
                             </div>
                         </div>
                         <br>
-                        <div class="mb-3">
+                        <div class="mb-3 <?= (validation_show_error('rilis')) ? 'has-error' : ''; ?>">
                             <label for="sampul" class="custom_file_sampul">Sampul</label>
 
                             <img src="/img/default.png" class="img-thumbnail img-preview inline-block" width="100px">
 
-                            <input class="form-control <?= (validation_show_error('sampul')) ? 'is-invalid' : ''; ?>" type="file" id="sampul" name="sampul" onchange="previewImage()">
+                            <input class="form-control" type="file" id="sampul" name="sampul" onchange="previewImage()">
                             <div class="invalid-feedback">
                                 <?= validation_show_error('sampul'); ?>
                             </div>
                         </div>
+
                         <br>
-                        <div class="mb-3">
+                        <div class="mb-3 <?= (validation_show_error('harga')) ? 'has-error' : ''; ?>">
                             <label for="harga" class="form-label">Harga</label>
                             <div class="input-group">
                                 <span class="input-group-addon">Rp</span>
-                                <input type="number" name="harga" class="form-control <?= (validation_show_error('harga')) ? 'is-invalid' : ''; ?>" id="harga" value="<?= old('harga'); ?>" placeholder="example : 130000">
+                                <input type="number" name="harga" class="form-control" id="harga" value="<?= old('harga'); ?>" placeholder="example : 130000">
                             </div>
                             <div class="invalid-feedback">
                                 <?= validation_show_error('harga'); ?>

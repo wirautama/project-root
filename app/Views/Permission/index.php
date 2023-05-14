@@ -16,31 +16,31 @@
         <div class="container">
             <div class="row">
                 <div class="col">
+                    <section class="content">
+                        <?php if (session()->getFlashdata('pesan')) : ?>
+                            <div class="alert alert-success" role="alert">
+                                <?= session()->getFlashdata('pesan'); ?>
+                            </div>
+                        <?php endif; ?>
+                        <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                            <thead>
+                                <tr>
+                                    <th>No.</th>
+                                    <th>User</th>
+                                    <th>Group</th>
+                                    <th>Action</th>
+                                </tr>
+                            </thead>
+                            <?php $no = 1; ?>
 
-                    <?php if (session()->getFlashdata('pesan')) : ?>
-                        <div class="alert alert-success" role="alert">
-                            <?= session()->getFlashdata('pesan'); ?>
-                        </div>
-                    <?php endif; ?>
-                    <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-                        <thead>
-                            <tr>
-                                <th>No.</th>
-                                <th>User</th>
-                                <th>Group</th>
-                                <th>Action</th>
-                            </tr>
-                        </thead>
-                        <?php $no = 1; ?>
+                            <tbody>
+                                <tr>
 
-                        <tbody>
-                            <tr>
+                                </tr>
+                            </tbody>
 
-                            </tr>
-                        </tbody>
-
-                    </table>
-                    <a href="/Group/new" class="btn btn-success">Tambah</a>
+                        </table>
+                        <a href="/Group/new" class="btn btn-success">Tambah</a>
                 </div>
             </div>
         </div>
