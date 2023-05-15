@@ -2,6 +2,7 @@
 
 namespace Config;
 
+use App\Filters\FilterJwt;
 use CodeIgniter\Config\BaseConfig;
 use CodeIgniter\Filters\CSRF;
 use CodeIgniter\Filters\DebugToolbar;
@@ -21,6 +22,7 @@ class Filters extends BaseConfig
         'honeypot'      => Honeypot::class,
         'invalidchars'  => InvalidChars::class,
         'secureheaders' => SecureHeaders::class,
+        'otentikasi'    => FilterJwt::class,
 
         'login'      => \Myth\Auth\Filters\LoginFilter::class,
         'role'       => \Myth\Auth\Filters\RoleFilter::class,
@@ -65,5 +67,13 @@ class Filters extends BaseConfig
      * Example:
      * 'isLoggedIn' => ['before' => ['account/*', 'profiles/*']]
      */
-    public array $filters = ['login' => ['before' => ['Profile/*', 'User/*', 'Komik/*', 'Group/*', 'Permissions/*']]];
+    public array $filters = [
+        'login' => ['before' => ['Profile/*', 'User/*', 'Komik/*', 'Group/*', 'Permissions/*']],
+        'otentikasi' => [
+            'before' => [
+                'Api/*',
+                'Api'
+            ]
+        ]
+    ];
 }

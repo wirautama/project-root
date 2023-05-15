@@ -36,6 +36,9 @@ $routes->post('/Api/Komik', 'Apikomik::create');
 $routes->get('/Api/Komik/(:any)', 'Apikomik::show/$1');
 $routes->put('/Api/Komik/(:num)', 'Apikomik::update/$1');
 $routes->delete('/Api/Komik/(:num)', 'Apikomik::delete/$1');
+
+$routes->get('/otentikasi', 'otentikasi::index');
+$routes->post('/otentikasi', 'otentikasi::index');
 // 
 
 $routes->group('', ['filter' => 'login'], function ($routes) {

@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use CodeIgniter\Model;
+use Exception;
 use Faker\Generator;
 use Myth\Auth\Authorization\GroupModel;
 use Myth\Auth\Entities\User;
@@ -133,5 +134,15 @@ class UserModel extends Model
         } else {
             return $this->where(['id' => $id])->first();
         }
+    }
+
+    public function getEmail($email)
+    {
+        $builder = $this->table('users');
+        $data = $builder->where('email', $email);
+        if (!$data) {
+            throw new Exception('Data Otentikasi Tidak Ditemukan');
+        }
+        return $data;
     }
 }
