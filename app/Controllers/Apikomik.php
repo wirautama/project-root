@@ -30,7 +30,12 @@ class Apikomik extends ResourceController
 
         $data = $this->model->where('id', $id)->findAll();
         if ($data) {
-            return $this->respond($data, 200);
+            // return $this->respond($data, 200);
+            return $this->respond([
+                'status' => 200,
+                'errors' => null,
+                'data' => $data
+            ], 200);
         } else {
             return $this->failNotFound('Data tidak ditemukan untuk id = ' . $id);
         }

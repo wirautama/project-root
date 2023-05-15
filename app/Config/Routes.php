@@ -2,6 +2,8 @@
 
 namespace Config;
 
+use App\Controllers\RestClient;
+
 // Create a new instance of our RouteCollection class.
 $routes = Services::routes();
 
@@ -39,6 +41,9 @@ $routes->delete('/Api/Komik/(:num)', 'Apikomik::delete/$1');
 
 $routes->get('/otentikasi', 'otentikasi::index');
 $routes->post('/otentikasi', 'otentikasi::index');
+
+$routes->get('/RestClient/Komik', 'RestClient::index');
+$routes->post('/RestClient/Komik', 'RestClient::index');
 // 
 
 $routes->group('', ['filter' => 'login'], function ($routes) {
